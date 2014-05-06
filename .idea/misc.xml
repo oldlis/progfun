@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
   <component name="EclipseCodeFormatter">
     <option name="defaultSettings" value="true" />
     <option name="enableJSFormatting" value="true" />
@@ -8,25 +11,26 @@
     <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../Java Code Formatter.xml" />
     <option name="selectedJavaProfile" value="reksoft" />
   </component>
-  <component name="IdProvider" IDEtalkID="224A8EF21DC72479C0BDE038A669FB44" />
+  <component name="IdProvider" IDEtalkID="B1E10A22A84254AC7919BEE98C984A3B" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.5</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.20000002" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="RunManager">
+    <list size="0" />
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
   </component>
 </project>
 

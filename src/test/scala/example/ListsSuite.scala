@@ -4,6 +4,7 @@ import org.scalatest.FunSuite
 
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
+import scala.xml.Null
 
 /**
  * This class implements a ScalaTest test suite for the methods in object
@@ -19,7 +20,7 @@ import org.scalatest.junit.JUnitRunner
  * inside eclipse using the built-in JUnit test runner.
  *
  * You have two options for running this test suite:
- * 
+ *
  * - Start the sbt console and run the "test" command
  * - Right-click this file in eclipse and chose "Run As" - "JUnit Test"
  */
@@ -30,7 +31,7 @@ class ListsSuite extends FunSuite {
    * Tests are written using the `test` operator which takes two arguments:
    *
    * - A description of the test. This description has to be unique, no two
-   *   tests can have the same description.
+   * tests can have the same description.
    * - The test body, a piece of Scala code that implements the test
    *
    * The most common way to implement a test body is using the method `assert`
@@ -47,7 +48,7 @@ class ListsSuite extends FunSuite {
    * This allows tests to be written in a more readable manner:
    */
   test("one plus one is three?") {
-    assert(1 + 1 == 3) // This assertion fails! Go ahead and fix it.
+    assert(1 + 1 == 2) // This assertion fails! Go ahead and fix it.
   }
 
 
@@ -72,7 +73,7 @@ class ListsSuite extends FunSuite {
    * We recommend to always use the `===` equality operator when writing tests.
    */
   test("details why one plus one is not three") {
-    assert(1 + 1 === 3) // Fix me, please!
+    assert(1 + 1 === 2) // Fix me, please!
   }
 
 
@@ -99,9 +100,10 @@ class ListsSuite extends FunSuite {
    * Now we finally write some tests for the list functions that have to be
    * implemented for this assignment. We fist import all members of the
    * `List` object.
-   */ 
+   */
+
   import Lists._
-  
+
 
   /**
    * We only provide two very basic tests for you. Write more tests to make
@@ -115,10 +117,18 @@ class ListsSuite extends FunSuite {
    * every tested aspect of a method.
    */
   test("sum of a few numbers") {
-    assert(sum(List(1,2,0)) === 3)
+    assert(sum(List(1, 2, 0)) === 3)
   }
-  
+
+  test("sum of a null") {
+    assert(sum(null) === 0)
+  }
+
   test("max of a few numbers") {
     assert(max(List(3, 7, 2)) === 7)
+  }
+
+  test("max of a few numbers with negatives") {
+    assert(max(List(-1, -2, -3)) === -1)
   }
 }

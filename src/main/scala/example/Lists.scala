@@ -1,6 +1,9 @@
 package example
 
 import common._
+import java.util.NoSuchElementException
+import scala.annotation.tailrec
+import scala.xml.Null
 
 object Lists {
   /**
@@ -11,19 +14,33 @@ object Lists {
    * For this example assignment you can use the following methods in class
    * `List`:
    *
-   *  - `xs.isEmpty: Boolean` returns `true` if the list `xs` is empty
-   *  - `xs.head: Int` returns the head element of the list `xs`. If the list
-   *    is empty an exception is thrown
-   *  - `xs.tail: List[Int]` returns the tail of the list `xs`, i.e. the the
-   *    list `xs` without its `head` element
+   * - `xs.isEmpty: Boolean` returns `true` if the list `xs` is empty
+   * - `xs.head: Int` returns the head element of the list `xs`. If the list
+   * is empty an exception is thrown
+   * - `xs.tail: List[Int]` returns the tail of the list `xs`, i.e. the the
+   * list `xs` without its `head` element
    *
-   *  ''Hint:'' instead of writing a `for` or `while` loop, think of a recursive
-   *  solution.
+   * ''Hint:'' instead of writing a `for` or `while` loop, think of a recursive
+   * solution.
    *
    * @param xs A list of natural numbers
    * @return The sum of all elements in `xs`
    */
-  def sum(xs: List[Int]): Int = 0
+  def sum(xs: List[Int]): Int = {
+    @tailrec
+    def rsum(accum: Int, xs: List[Int]): Int = {
+      if (xs.isEmpty) accum
+      else {
+        var headValue = xs.head;
+        rsum(accum + headValue, xs.tail)
+      }
+    }
+
+    xs match {
+      case null | Nil => 0
+      case _ => rsum(0, xs)
+    }
+  }
 
   /**
    * This method returns the largest element in a list of integers. If the
@@ -38,5 +55,24 @@ object Lists {
    * @return The largest element in `xs`
    * @throws java.util.NoSuchElementException if `xs` is an empty list
    */
-  def max(xs: List[Int]): Int = 0
+  def max(xs: List[Int]): Int = {
+    @tailrec
+    def rmax(max: Int, xs: List[Int]): Int = {
+      if (xs.isEmpty) max
+      else {
+        var headValue = xs.head
+
+        if (headValue > max) {
+          rmax(headValue, xs.tail)
+        } else {
+          rmax(max, xs.tail)
+        }
+      }
+    }
+
+    xs match {
+      case null | Nil => throw new NoSuchElementException("List is empty")
+      case _ => rmax(xs.head, xs.tail)
+    }
+  }
 }
