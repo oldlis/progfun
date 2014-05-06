@@ -60,7 +60,7 @@ object Lists {
     def rmax(max: Int, xs: List[Int]): Int = {
       if (xs.isEmpty) max
       else {
-        var headValue = xs.head
+        val headValue = xs.head
 
         if (headValue > max) {
           rmax(headValue, xs.tail)
